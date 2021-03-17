@@ -1,0 +1,113 @@
+﻿@model IEnumerable<EmployeeAdmin.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";   
+}
+@section styleSheets{
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Index-List of Employees</h1>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table id="example" class="table table-border table-striped custom-table datatable mb-0 patientsTable">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CallingNumber)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CallingNumber)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+
+    <script src="~/assets/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+
+</body>
+
+
+</html>
